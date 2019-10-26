@@ -38,4 +38,5 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifact: geoip.dat
+        tag: "latest"
         token: ${{ secrets.GITHUB_TOKEN }}
