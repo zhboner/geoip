@@ -21,7 +21,6 @@ jobs:
     - name: Generate
       run: |
         ls -a
-        echo ${{ GITHUB_WORKSPACE }}
         go version
         chmod +x generate.sh
         ./generate.sh
