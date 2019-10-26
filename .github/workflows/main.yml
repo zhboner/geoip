@@ -1,4 +1,4 @@
-name: Go
+name: build
 on: 
   schedule:
     - cron: "* * * * *"
@@ -20,9 +20,11 @@ jobs:
 
     - name: Generate
       run: |
+        ls -a
+        echo ${{ GITHUB_WORKSPACE }}
         go version
-        chmod +x ${{ GITHUB_WORKSPACE }}/generate.sh
-        ${{ GITHUB_WORKSPACE }}/generate.sh
+        chmod +x generate.sh
+        ./generate.sh
         ls -al ./publish/
         
     - name: Release
