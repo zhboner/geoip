@@ -27,7 +27,7 @@ jobs:
         ls -al ./publish/
         
     - name: Release
-      uses: softprops/action-gh-release@v0.1.0
+      uses: softprops/action-gh-release@v1
       with: 
         files: ./publish/geoip.dat
       env:
