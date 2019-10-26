@@ -28,11 +28,9 @@ jobs:
       run: |
         chmod +x generate.sh
         ./generate.sh
-        ls -al ./publish/
-        
+
     - name: Release
-      uses: softprops/action-gh-release@v1
-      with: 
-        files: ./publish/geoip.dat
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: ncipollo/release-action@v1
+      with:
+        artifact: geoip.dat
+        token: ${{ secrets.GITHUB_TOKEN }}
