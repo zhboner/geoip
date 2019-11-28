@@ -36,7 +36,7 @@ jobs:
 
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v1-release
-      env:
+      with:
         file: geoip.dat
         asset_name: geoip.dat
         tag: latest
