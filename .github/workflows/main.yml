@@ -34,9 +34,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload to release
-      uses: JasonEtco/upload-to-release@master
-      with:
-        args: geoip.dat
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v1-release
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        file: geoip.dat
+        asset_name: geoip.dat
+        tag: latest
+        overwrite: true
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
