@@ -1,7 +1,7 @@
 name: build
-on: 
+on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "*/3 * * * *"
 jobs:
 
   build:
@@ -34,9 +34,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Release
-      uses: ncipollo/release-action@v1
+    - name: Upload to release
+      uses: JasonEtco/upload-to-release@master
       with:
-        artifact: geoip.dat
-        tag: "latest"
-        token: ${{ secrets.GITHUB_TOKEN }}
+        args: geoip.dat
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
